@@ -1,0 +1,70 @@
+﻿@model MemberRegistration.MvcWebUI.Models.MemberAddViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <h2>Kayıt Formu</h2>
+                <p class="lead">Lütfen Bilgilerinizi Giriniz.</p>
+                <p class="lead">@Html.ValidationMessage("MemberException")</p>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-12 col-lg-8">
+                    <h4 class="mb-3">Bilgileriniz</h4>
+                    @using (Html.BeginForm())
+                    {
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">Adınız</label>
+                                @Html.TextBoxFor(m => m.Member.FirstName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Member.FirstName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">Soy Adınız</label>
+                                @Html.TextBoxFor(m => m.Member.LastName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Member.LastName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email</label>
+                                @Html.TextBoxFor(m => m.Member.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Member.Email, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-12">
+                                <label for="tcNo" class="form-label">Tc Kimlik Numaranız</label>
+                                @Html.TextBoxFor(m => m.Member.TcNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Member.TcNo, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-12">
+                                <label for="dateOfBirth" class="form-label">Doğum Tarihiniz</label>
+                                @Html.TextBoxFor(m => m.Member.DateOfBirth, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Member.DateOfBirth, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <hr class="mb-4" />
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">Kayıt ol</button>
+                    }
+                </div>
+            </div>
+        </main>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2017–2021 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+
+    </div>
+</body>
+</html>
